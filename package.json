@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon App",
+    "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Fábio Nascimento",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "webpack": "^3.10.0"
   },
   "devDependencies": {
     "nodemon": "^1.14.11"

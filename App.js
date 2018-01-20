@@ -4,6 +4,8 @@ const app = express();
 app.set("views", "./");
 app.set("view engine", "pug");
 
+app.use(express.static("./"));
+
 app.get("/", (req, res) => {
   res.render("index");
 });
