@@ -19,7 +19,7 @@ module.exports = {
       {
         test: /\.jsx?/,
         include: path.resolve("./src"),
-        use: ["babel-loader", "eslint-loader"]
+        use: ["babel-loader", "prettier-loader", "eslint-loader"]
       }
     ]
   }
