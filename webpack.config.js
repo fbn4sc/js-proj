@@ -12,5 +12,14 @@ module.exports = {
         target: "http://localhost:3000"
       }
     }
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?/,
+        include: path.resolve("./src"),
+        loader: "babel-loader"
+      }
+    ]
   }
 };
