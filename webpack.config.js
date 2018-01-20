@@ -13,12 +13,13 @@ module.exports = {
       }
     }
   },
+  resolve: { extensions: [".js", ".jsx"] },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         include: path.resolve("./src"),
-        loader: "babel-loader"
+        use: ["babel-loader", "eslint-loader"]
       }
     ]
   }

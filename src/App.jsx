@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { render } from "react-dom";
 
+import ProductForm from "./ProductForm";
+
 const App = () => {
-  return <p>Teste</p>;
+  return <ProductForm />;
 };
 
 render(<App />, document.getElementById("app"));
