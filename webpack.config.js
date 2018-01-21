@@ -1,5 +1,8 @@
 const path = require("path");
 const glob = require("glob");
+const bundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+const webpack = require("webpack");
 
 const entries = {};
 glob.sync("./src/scripts/components/**/*Page.jsx").map(entry => {
@@ -7,7 +10,10 @@ glob.sync("./src/scripts/components/**/*Page.jsx").map(entry => {
 });
 
 module.exports = {
-  entry: entries,
+  entry: {
+    vendor: ["react", "react-dom"],
+    ...entries
+  },
   output: {
     path: path.resolve(__dirname, "dist/scripts"),
     filename: "[name].bundle.js"
@@ -30,5 +36,12 @@ module.exports = {
         use: ["babel-loader", "prettier-loader", "eslint-loader"]
       }
     ]
-  }
+  },
+  plugins: [
+    new bundleAnalyzerPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: Infinity
+    })
+  ]
 };
